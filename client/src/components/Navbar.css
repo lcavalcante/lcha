@@ -1,0 +1,15 @@
+/* CSS */
+
+.navbar {
+    background-color: #74c8e9; 
+    color: #000000; 
+    padding: 25px; 
+    text-align: center;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .navbar-text {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
