@@ -9,9 +9,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 78px);
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #87ceeb, #ffffff);
+  /* background: linear-gradient(to bottom, #87ceeb, #ffffff); */
+  background: #87ceeb;
 }
 
 form {
