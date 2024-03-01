@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import './Formulario.css'; 
 
-function Formulario() {
+export default function Formulario() {
   const [nome, setNome] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const response = await fetch('https://lcha-fn.vercel.app/api/save', {
@@ -18,15 +21,18 @@ function Formulario() {
       if (response.ok) {
         alert('Presença confirmada e registrada com sucesso!');
         console.log('Presença confirmada e registrada!');
+        setNome('');
       } else {
         console.error('Erro ao confirmar presença.');
       }
     } catch (error) {
       console.error('Erro ao enviar a confirmação:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
-  return (  
+  return (
     <div>
       <h3>Confirme sua Presença</h3>
       <form onSubmit={handleSubmit}>
@@ -37,10 +43,14 @@ function Formulario() {
           value={nome}
           onChange={(e) => setNome(e.target.value)}
         />
-        <button type="submit">Confirmar Presença</button>
+        <button
+          type="submit"
+          className={loading ? 'btn-disabled' : ''}
+          disabled={loading}
+        >
+          {loading ? 'Enviando...' : 'Confirmar Presença'}
+        </button>
       </form>
     </div>
   );
 }
-
-export default Formulario;
