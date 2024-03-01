@@ -7,7 +7,7 @@ function Formulario() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/confirmacao-presenca', {
+      const response = await fetch('https://lcha-fn.vercel.app/api/save', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
